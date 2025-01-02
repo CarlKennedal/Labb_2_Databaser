@@ -53,9 +53,9 @@ public partial class CarlKennedalLabbEttContext : DbContext
 
         modelBuilder.Entity<Book>(entity =>
         {
-            entity.HasKey(e => e.Isbn);
+            entity.HasKey(e => e.ISBN);
 
-            entity.Property(e => e.Isbn)
+            entity.Property(e => e.ISBN)
                 .HasMaxLength(20)
                 .IsUnicode(false)
                 .HasColumnName("ISBN");
@@ -117,7 +117,7 @@ public partial class CarlKennedalLabbEttContext : DbContext
         {
             entity.HasNoKey();
 
-            entity.Property(e => e.Isbn)
+            entity.Property(e => e.ISBN)
                 .HasMaxLength(20)
                 .IsUnicode(false)
                 .HasColumnName("ISBN");
@@ -128,7 +128,7 @@ public partial class CarlKennedalLabbEttContext : DbContext
             entity.Property(e => e.StoreId).HasColumnName("StoreID");
 
             entity.HasOne(d => d.IsbnNavigation).WithMany()
-                .HasForeignKey(d => d.Isbn)
+                .HasForeignKey(d => d.ISBN)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK__PurchaseOr__ISBN__4D94879B");
 
@@ -149,7 +149,7 @@ public partial class CarlKennedalLabbEttContext : DbContext
 
             entity.Property(e => e.SellOrderId).HasColumnName("SellOrderID");
             entity.Property(e => e.CustomerId).HasColumnName("CustomerID");
-            entity.Property(e => e.Isbn)
+            entity.Property(e => e.ISBN)
                 .HasMaxLength(20)
                 .IsUnicode(false)
                 .HasColumnName("ISBN");
@@ -162,7 +162,7 @@ public partial class CarlKennedalLabbEttContext : DbContext
                 .HasConstraintName("FK__SellOrder__Custo__48CFD27E");
 
             entity.HasOne(d => d.IsbnNavigation).WithMany(p => p.SellOrders)
-                .HasForeignKey(d => d.Isbn)
+                .HasForeignKey(d => d.ISBN)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK__SellOrders__ISBN__47DBAE45");
 
@@ -174,18 +174,18 @@ public partial class CarlKennedalLabbEttContext : DbContext
 
         modelBuilder.Entity<StockBalance>(entity =>
         {
-            entity.HasKey(e => new { e.StoreId, e.Isbn });
+            entity.HasKey(e => new { e.StoreId, e.ISBN });
 
             entity.ToTable("StockBalance");
 
             entity.Property(e => e.StoreId).HasColumnName("StoreID");
-            entity.Property(e => e.Isbn)
+            entity.Property(e => e.ISBN)
                 .HasMaxLength(20)
                 .IsUnicode(false)
                 .HasColumnName("ISBN");
 
             entity.HasOne(d => d.IsbnNavigation).WithMany(p => p.StockBalances)
-                .HasForeignKey(d => d.Isbn)
+                .HasForeignKey(d => d.ISBN)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK_StockBalance_Books");
 

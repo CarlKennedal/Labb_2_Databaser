@@ -7,7 +7,7 @@ public partial class StockBalance
 {
     public int StoreId { get; set; }
 
-    public string Isbn { get; set; } = null!;
+    public string ISBN { get; set; } = null!;
 
     public int Quantity { get; set; }
 

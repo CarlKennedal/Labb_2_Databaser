@@ -5,7 +5,7 @@ namespace Labb_2_Databaser.Models;
 
 public partial class Book
 {
-    public string Isbn { get; set; } = null!;
+    public string ISBN { get; set; } = null!;
 
     public string Title { get; set; } = null!;
 

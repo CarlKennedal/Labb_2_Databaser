@@ -11,7 +11,7 @@ public partial class PurchaseOrder
 
     public int PublisherId { get; set; }
 
-    public string Isbn { get; set; } = null!;
+    public string ISBN { get; set; } = null!;
 
     public DateOnly OrderDate { get; set; }
 
